@@ -12,7 +12,7 @@ let currentSlide = 1;
 let gameName = '';
 let selection = {
     player1: '',
-    player2:''
+    player2: ''
 };
 let winnerMessage = '';
 
@@ -20,19 +20,14 @@ let winnerMessage = '';
 function showCurrentSlide() {
     currentSlide++;
     slides.forEach(slide => {
-        if (slide.id === `slide${currentSlide}`) {
-            slide.classList.remove('visually-hidden');
-        } else {
-            slide.classList.add('visually-hidden');
-        }
+        slide.id === `slide${currentSlide}` ? 
+        slide.classList.remove('visually-hidden') : 
+        slide.classList.add('visually-hidden');
+
     });
     if (currentSlide === 5) {
         getWinner();
     }
-};
-
-function startGame() {
-    showCurrentSlide();
 };
 
 function setGameName(evt) {
@@ -52,9 +47,13 @@ function getWinner() {
         paper: 'rock',
         scissors: 'paper'
     }
-    beats[selection.player1] === selection.player2 ? 
-        winnerMessage = `player 1 wins (${selection.player1} beats ${selection.player2})` : 
-        winnerMessage = `player 2 wins (${selection.player2} beats ${selection.player1})`;
+    if (selection.player1 === selection.player2) {
+        winnerMessage = 'draw (players made the same selection)'
+    } else if (beats[selection.player1] === selection.player2) { 
+        winnerMessage = `player 1 wins (${selection.player1} beats ${selection.player2})` 
+    } else { 
+        winnerMessage = `player 2 wins (${selection.player2} beats ${selection.player1})`
+    };
     resultMessage.textContent = winnerMessage;
 };
 
@@ -68,7 +67,7 @@ function makePlayerSelection(player) {
 }
 
 //Listeners
-startGameBtn.addEventListener('click', startGame);
+startGameBtn.addEventListener('click', showCurrentSlide);
 setGameNameBtn.addEventListener('click', setGameName);
 playerSelectionForms.forEach(form => {
     form.addEventListener('input', function () {

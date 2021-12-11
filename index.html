@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css"></link>
+</head>
+<body class="body">
+    <div class="app">
+        <div class="slide slide1" id="slide1">
+            <button class="btn" id="startGameBtn">Start</button>
+        </div>
+        <div class="slide slide2 visually-hidden" id="slide2">
+            <form class="game-form" id="gameName">
+                <input class="text-input" id="gameNameField" placeholder="Enter game name">
+                <button class="btn" id="setGameNameBtn">Next</button>
+            </form>
+        </div>
+        <div class="slide slide3 visually-hidden" id="slide3">
+            <form class="game-form selection-form" id="player1">
+                <div class="game-name gameNameOutput"></div>
+                <div class="game-name">Player 1</div>
+                <label>
+                    <input type="radio" class="selection-input" name="selectionPlayer1" value="rock">
+                    <span class="selection-name">Rock</span>
+                </label>
+                <label>
+                    <input type="radio" class="selection-input" name="selectionPlayer1" value="paper">
+                    <span class="selection-name">Paper</span>
+                </label>
+                <label>
+                    <input type="radio" class="selection-input" name="selectionPlayer1" value="scissors">
+                    <span class="selection-name">Scissors</span>
+                </label>
+            </form>
+        </div>
+        <div class="slide slide4 visually-hidden" id="slide4">
+            <form class="game-form selection-form" id="player2">
+                <div class="game-name gameNameOutput"></div>
+                <div class="game-name">Player 2</div>
+                <label>
+                    <input type="radio" class="selection-input" name="selectionPlayer2" value="rock">
+                    <span class="selection-name">Rock</span>
+                </label>
+                <label>
+                    <input type="radio" class="selection-input" name="selectionPlayer2" value="paper">
+                    <span class="selection-name">Paper</span>
+                </label>
+                <label>
+                    <input type="radio" class="selection-input" name="selectionPlayer2" value="scissors">
+                    <span class="selection-name">Scissors</span>
+                </label>
+            </form>
+        </div>
+        <div class="slide slide5 visually-hidden" id="slide5">
+            <div class="result">Result: <span id="resultMessage"></span></div>
+        </div>
+    </div>
+
+
+    <script src="script/script.js"></script>
+</body>
+</html>
